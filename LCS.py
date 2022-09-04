@@ -79,14 +79,14 @@ if (__name__ == '__main__'):
         (p, length) = pos
         print(doc[ p : p + length ])
 
-# python FuzzyHighLight.py 要被highlight的文字 你被light文
+# python LCS.py 要被highlight的文字 你被light文
 #   [(1, 1), (6, 5), (12, 1)]
 #   被
 #   light
 #   文
-# python FuzzyHighLight.py 要被highlight的文字 你文light被
+# python LCS.py 要被highlight的文字 你文light被
 #   [(6, 5)]
 #   light
-# python FuzzyHighLight.py 你文light被 要被highlight的文字
+# python LCS.py 你文light被 要被highlight的文字
 #   [(2, 5)]
 #   light
