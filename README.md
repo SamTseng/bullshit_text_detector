@@ -57,3 +57,4 @@ $ python detect.py cmd
 
 ### 3. 提交給偵測器偵測，結果如圖：
 ![detected text](detected_text.png)
+有顏色的文字（藍色、紅色、綠色、橘色），都是唬爛生成器生成的文字（有顏色者不是人寫的文字）。
