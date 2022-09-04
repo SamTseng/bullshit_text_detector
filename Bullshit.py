@@ -23,8 +23,7 @@ class Bullshit:
     
     # 判斷目前句子是否結束
     def isEnd(self, str):
-        list_end_symbol = ["。", "？", "！", "?", "!"]
-        if any( str[len(str)-1] in symbol for symbol in list_end_symbol ):
+        if str != '' and str[-1] in "。？！?!":
             return True
         return False
 
@@ -62,6 +61,13 @@ class Bullshit:
             # 取得整數亂數，藉以決定建立新段落、產生名人語錄，還是唬爛語錄
             int_rand = random.randint(0, 99)
 
+            '''
+            int_rand 範圍:
+            0 - 5 且 文字資料是句號、問號等作為結尾: 建立新段落
+            0 - 27: 使用名人語錄
+            28 - 99: 使用唬爛語錄
+            '''
+
             # 根據整數亂數來決定生成的方向
             if int_rand < 5 and self.isEnd(str_gen):
                 # 建立新段落
@@ -73,10 +79,7 @@ class Bullshit:
                     break
 
                 # 取得隨機排序後的名人語錄第 1 句
-                sentence_famous = list_famous[0]
-
-                # 沒被取得、剩下的語錄，重新初始化
-                list_famous = list_famous[1:]
+                sentence_famous = list_famous.pop(0)
 
                 # 「曾說過、曾講過」之類的詞，用來取代名人語錄當中的 a 字元
                 str_before = self.dict_data['before'][ random.randint(0, len(self.dict_data['before']) - 1 ) ]
@@ -97,10 +100,7 @@ class Bullshit:
                     break
 
                 # 取得隨機排序後的唬爛語錄第 1 句
-                sentence_bullshit = list_bullshit[0]
-
-                # 沒被取得、剩下的語錄，重新初始化
-                list_bullshit = list_bullshit[1:]
+                sentence_bullshit = list_bullshit.pop(0)
 
                 # 取代唬爛語錄當中的 x 字元
                 sentence_bullshit = sentence_bullshit.replace("x", param_topic)
