@@ -4,7 +4,7 @@
 # Written by Yuen-Hsien Tseng on 2022/01/30
 
 import sys, re, json
-import FuzzyHighLight
+from LCS import LCS
 
 import jieba
 jieba.setLogLevel(60) # stop printing loading messages to stderr
@@ -53,7 +53,7 @@ def HighLightFast(sentence, TextPatterns, Bold, index):
     if len(SimTexts) == 0:
         return (0, sentence)
     (maxi, sim, txtpttn) = SimTexts[0]
-    (matchedMatrix, mPos) = FuzzyHighLight.LCS(sentence, txtpttn)
+    (matchedMatrix, mPos) = LCS(sentence, txtpttn)
     #print("mPos:", mPos)
     #print("sentence="+sentence)
     #print("Pattern="+TextPatterns[maxi])
@@ -74,7 +74,7 @@ def HighLightOne(sentence, TextPatterns, Bold):
         if len(txtpttn) < 4:
             (matchedMatrix, matchedPos) = ([], [])
         else:
-            (matchedMatrix, matchedPos) = FuzzyHighLight.LCS(sentence, txtpttn)
+            (matchedMatrix, matchedPos) = LCS(sentence, txtpttn)
         length = sum([ length for (p, length) in matchedPos if length > 1])
         if (length > len(sentence)*0.4  # total matched length must exceed a threshold
             and length > len(txtpttn)*0.25
