@@ -14,13 +14,6 @@
 1. 請先行下載「唬爛產生器」作者的語錄資料: [下載 data.json](https://raw.githubusercontent.com/StillFantastic/bullshit/master/generator/data.json "data.json")
 2. 將 data.json 放到專案目錄下即可。
 
-## 執行前專案資料夾內容
-| 檔案 | 說明 |
-| --- | --- |
-| Bullshit.py | 類別 |
-| data.json | 語錄資料 |
-| run.py | 執行檔 |
-
 ## 環境需求
 - Python 3.6 以上
 
